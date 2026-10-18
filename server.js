@@ -23,9 +23,18 @@ const app = express();
 
 // Teach the server how to read JSON data
 app.use(express.json());
+app.get("/", (req, res) => {
+    res.send("Hello")
+})
 
 
 // ... (Your app.post routes go here, exactly as they were) ...
+
+// Import our new routes
+const authRoutes = require('./scr/routes/authRoute');
+
+// Tell the server to send any traffic starting with /api/auth to our Waiter
+app.use('/api/auth', authRoutes);
 
 
 app.listen(3000, () => {
