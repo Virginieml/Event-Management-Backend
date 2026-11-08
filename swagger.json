@@ -6,7 +6,12 @@
     },
     "servers": [
         {
-            "url": "http://localhost:3000"
+            "url": "https://event-management-backend-x2x8.onrender.com",
+            "description": "Production Server (Render)"
+        },
+        {
+            "url": "http://localhost:3000",
+            "description": "Local Development Server"
         }
     ],
     "paths": {
