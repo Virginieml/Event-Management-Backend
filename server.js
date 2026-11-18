@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cors = require('cors');
 
 // 1. Bring in the specific tools we need from the updated firebase-admin library
 const { initializeApp, cert } = require('firebase-admin/app');
@@ -24,6 +24,7 @@ const app = express();
 
 
 // Teach the server how to read JSON data
+app.use(cors({origin: 'http://localhost:5173'}));
 app.use(express.json());
 app.get("/", (req, res) => {
    res.send("Hello from the server")
