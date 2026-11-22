@@ -159,7 +159,29 @@
                 }
             }
         },
+
         "/api/events/{id}": {
+            "get": {
+                "tags": [
+                    "Event"
+                ],
+                "summmary": "Get event by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Event details"
+                    }
+                }
+            },
             "put": {
                 "tags": [
                     "Event"

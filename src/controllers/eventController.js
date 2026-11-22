@@ -60,7 +60,21 @@ exports.getEventByName = async (req, res) => {
    } catch (error) {
        res.status(500).json({ error: error.message });
    }
-}
+} 
+exports.getEventById = async (req, res) => {
+   try {
+       const eventId = req.params.id;
+       const eventDoc = await db.collection('events').doc(eventId).get();
+
+       if (!eventDoc.exists) {
+           return res.status(404).json({ error: "Event not found" });
+       }
+
+       res.status(200).json({ id: eventDoc.id, ...eventDoc.data() });
+   } catch (error) {
+       res.status(500).json({ error: error.message });
+   }
+};
 
 exports.updateEvent = async (req, res) => {
    try {
