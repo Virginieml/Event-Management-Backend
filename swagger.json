@@ -159,8 +159,7 @@
                 }
             }
         },
-
-        "/api/events/{id}": {
+        "/api/events/id/{id}": {
             "get": {
                 "tags": [
                     "Event"
@@ -181,7 +180,11 @@
                         "description": "Event details"
                     }
                 }
-            },
+            }
+        },
+
+        "/api/events/{id}": {
+           
             "put": {
                 "tags": [
                     "Event"
